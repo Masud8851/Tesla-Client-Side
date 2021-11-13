@@ -78,7 +78,7 @@ const useFirebase = () => {
 
 		signInWithEmailAndPassword(auth, email, password)
 			.then((userCredential) => {
-				alert("Login SUccessfull!");
+				alert("Successfully Login!");
 				const destination = location?.state.form || "/";
 				histry.replace(destination);
 			})

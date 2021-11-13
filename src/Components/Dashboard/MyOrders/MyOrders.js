@@ -19,7 +19,7 @@ const MyOrders = () => {
 
 	// Delete order
 	const handleDelete = (id) => {
-		const proceed = window.confirm("Are you Sure ? You want to Delete ?");
+		const proceed = window.confirm("Are you Sure ? Do you want to Delete ?");
 		if (proceed) {
 			axios.delete(`http://localhost:5000/orders/${id}`).then((res) => {
 				if (res.data.acknowledged) {
