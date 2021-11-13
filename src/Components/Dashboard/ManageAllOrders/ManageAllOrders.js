@@ -8,33 +8,39 @@ const ManageAllOrders = () => {
 
 	// Load All order
 	useEffect(() => {
-		axios.get("http://localhost:5000/orders").then((res) => {
-			setOrders(res.data);
-		});
+		axios
+			.get("https://enigmatic-sierra-10657.herokuapp.com/orders")
+			.then((res) => {
+				setOrders(res.data);
+			});
 	}, [load]);
 
 	// Delete order
 	const handleDelete = (id) => {
 		const proceed = window.confirm("Are you Sure ? You want to Delete ?");
 		if (proceed) {
-			axios.delete(`http://localhost:5000/orders/${id}`).then((res) => {
-				if (res.data.acknowledged) {
-					alert("Deleted order successfully!");
-				}
-				const remain = orders.filter((book) => book._id !== id);
-				setOrders(remain);
-			});
+			axios
+				.delete(`https://enigmatic-sierra-10657.herokuapp.com/orders/${id}`)
+				.then((res) => {
+					if (res.data.acknowledged) {
+						alert("Deleted order successfully!");
+					}
+					const remain = orders.filter((book) => book._id !== id);
+					setOrders(remain);
+				});
 		}
 	};
 
 	// Update Status
 	const handleAprove = (id) => {
-		axios.put(`http://localhost:5000/orders/${id}`, {}).then((res) => {
-			if (res.data.acknowledged) {
-				alert("Order approved!");
-				setLoad(true);
-			}
-		});
+		axios
+			.put(`https://enigmatic-sierra-10657.herokuapp.com/orders/${id}`, {})
+			.then((res) => {
+				if (res.data.acknowledged) {
+					alert("Order approved!");
+					setLoad(true);
+				}
+			});
 	};
 
 	return (

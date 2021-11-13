@@ -22,11 +22,13 @@ const Review = () => {
 	const handleReviewSubmit = (e) => {
 		e.preventDefault();
 		reviewData.customer = user.displayName;
-		axios.post("http://localhost:5000/reviews", reviewData).then((res) => {
-			if (res.data.acknowledged) {
-				alert("Review Added Successfully!");
-			}
-		});
+		axios
+			.post("https://enigmatic-sierra-10657.herokuapp.com/reviews", reviewData)
+			.then((res) => {
+				if (res.data.acknowledged) {
+					alert("Review Added Successfully!");
+				}
+			});
 	};
 	return (
 		<div className="container">

@@ -10,7 +10,7 @@ const MyOrders = () => {
 
 	// Load All order
 	useEffect(() => {
-		const url = `http://localhost:5000/orders/${user.email}`;
+		const url = `https://enigmatic-sierra-10657.herokuapp.com/orders/${user.email}`;
 		console.log(url);
 		axios.get(url).then((res) => {
 			setOrders(res.data);
@@ -21,13 +21,15 @@ const MyOrders = () => {
 	const handleDelete = (id) => {
 		const proceed = window.confirm("Are you Sure ? Do you want to Delete ?");
 		if (proceed) {
-			axios.delete(`http://localhost:5000/orders/${id}`).then((res) => {
-				if (res.data.acknowledged) {
-					toast.success("Delete Order Successfully!");
-				}
-				const remain = orders.filter((book) => book._id !== id);
-				setOrders(remain);
-			});
+			axios
+				.delete(`https://enigmatic-sierra-10657.herokuapp.com/orders/${id}`)
+				.then((res) => {
+					if (res.data.acknowledged) {
+						toast.success("Delete Order Successfully!");
+					}
+					const remain = orders.filter((book) => book._id !== id);
+					setOrders(remain);
+				});
 		}
 	};
 

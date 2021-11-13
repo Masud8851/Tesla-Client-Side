@@ -10,12 +10,14 @@ const AddProduct = () => {
 		reset,
 	} = useForm();
 	const onSubmit = (data) => {
-		axios.post(`http://localhost:5000/products`, data).then((res) => {
-			if (res.data.acknowledged) {
-				alert("Product Added Successfully!");
-				reset();
-			}
-		});
+		axios
+			.post(`https://enigmatic-sierra-10657.herokuapp.com/products`, data)
+			.then((res) => {
+				if (res.data.acknowledged) {
+					alert("Product Added Successfully!");
+					reset();
+				}
+			});
 	};
 	return (
 		<div class="container">

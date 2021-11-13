@@ -8,9 +8,11 @@ const CustomerReview = () => {
 	const [cusromReview, setCustomReview] = useState([]);
 
 	useEffect(() => {
-		axios.get("http://localhost:5000/reviews").then((res) => {
-			setCustomReview(res.data.reverse());
-		});
+		axios
+			.get("https://enigmatic-sierra-10657.herokuapp.com/reviews")
+			.then((res) => {
+				setCustomReview(res.data.reverse());
+			});
 	}, []);
 
 	const settings = {

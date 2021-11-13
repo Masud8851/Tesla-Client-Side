@@ -8,9 +8,11 @@ const ProductShow = () => {
 
 	// Get All Data
 	useEffect(() => {
-		axios.get("http://localhost:5000/products").then((res) => {
-			setProducts(res.data);
-		});
+		axios
+			.get("https://enigmatic-sierra-10657.herokuapp.com/products")
+			.then((res) => {
+				setProducts(res.data);
+			});
 	}, []);
 
 	return (

@@ -9,7 +9,7 @@ const ManageProducts = () => {
 
 	// Load All Product
 	useEffect(() => {
-		fetch(`http://localhost:5000/products`, {
+		fetch(`https://enigmatic-sierra-10657.herokuapp.com/products`, {
 			headers: {
 				authorization: `Bearer ${token}`,
 			},
@@ -24,13 +24,15 @@ const ManageProducts = () => {
 	const handleDelete = (id) => {
 		const proceed = window.confirm("Are you Sure ? You want to Delete ?");
 		if (proceed) {
-			axios.delete(`http://localhost:5000/products/${id}`).then((res) => {
-				if (res.data.acknowledged) {
-					alert("Successfully deleted order!");
-				}
-				const remain = products.filter((book) => book._id !== id);
-				setProducts(remain);
-			});
+			axios
+				.delete(`https://enigmatic-sierra-10657.herokuapp.com/products/${id}`)
+				.then((res) => {
+					if (res.data.acknowledged) {
+						alert("Successfully deleted order!");
+					}
+					const remain = products.filter((book) => book._id !== id);
+					setProducts(remain);
+				});
 		}
 	};
 	return (

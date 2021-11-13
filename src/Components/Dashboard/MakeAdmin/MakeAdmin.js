@@ -17,7 +17,7 @@ const MakeAdmin = () => {
 		const user = { email };
 
 		// Update to Database
-		fetch("http://localhost:5000/users/admin", {
+		fetch("https://enigmatic-sierra-10657.herokuapp.com/users/admin", {
 			method: "PUT",
 			headers: {
 				authorization: `Bearer ${token}`,

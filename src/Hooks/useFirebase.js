@@ -118,20 +118,26 @@ const useFirebase = () => {
 	// Send data to Database
 	const saveUser = (email, displayName) => {
 		const user = { email, displayName };
-		axios.post("http://localhost:5000/users", user).then();
+		axios
+			.post("https://enigmatic-sierra-10657.herokuapp.com/users", user)
+			.then();
 	};
 
 	// update user data to Datebase
 	const updateUser = (email, displayName) => {
 		const user = { email, displayName };
-		axios.put("http://localhost:5000/users", user).then();
+		axios
+			.put("https://enigmatic-sierra-10657.herokuapp.com/users", user)
+			.then();
 	};
 
 	// Admin check
 	useEffect(() => {
-		axios.get(`http://localhost:5000/users/${user.email}`).then((res) => {
-			setAdmin(res.data.admin);
-		});
+		axios
+			.get(`https://enigmatic-sierra-10657.herokuapp.com/users/${user.email}`)
+			.then((res) => {
+				setAdmin(res.data.admin);
+			});
 	}, [user.email]);
 
 	return {

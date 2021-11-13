@@ -15,9 +15,11 @@ const Purchase = () => {
 	const [item, setItem] = useState({});
 	// Get Package Details
 	useEffect(() => {
-		axios.get(`http://localhost:5000/product/${id}`).then((response) => {
-			setItem(response.data);
-		});
+		axios
+			.get(`https://enigmatic-sierra-10657.herokuapp.com/product/${id}`)
+			.then((response) => {
+				setItem(response.data);
+			});
 	}, [user.email]);
 
 	// Book Order
@@ -29,13 +31,15 @@ const Purchase = () => {
 	} = useForm();
 	const onSubmit = (data) => {
 		data.status = "Pending";
-		axios.post(`http://localhost:5000/orders`, data).then((res) => {
-			if (res.data.acknowledged) {
-				alert("Order placed SuccessFully!");
-				reset();
-				history.replace("/");
-			}
-		});
+		axios
+			.post(`https://enigmatic-sierra-10657.herokuapp.com/orders`, data)
+			.then((res) => {
+				if (res.data.acknowledged) {
+					alert("Order placed SuccessFully!");
+					reset();
+					history.replace("/");
+				}
+			});
 	};
 
 	console.log(item);
