@@ -31,7 +31,7 @@ const Explore = () => {
 								<span style={{ color: "orangered" }}>Latest</span> Products
 							</b>{" "}
 						</h2>
-						{/* ------------- */}
+						
 
 						<Row xs={1} sm={1} md={3} className="g-4 p-4">
 							{products.map((product) => (
