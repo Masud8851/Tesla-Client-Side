@@ -4,7 +4,7 @@
 
 This is a car selling website. To make this site I used HTML5, CSS3, Bootstrap5, ReactJS, MongoDb, express js, Firebase, Heroku.
 
-# Functionality
+## Functionality
 
 - User Login , Registraion
 - Dashboard for both Admin and User
